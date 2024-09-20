@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task/Widgets/product_image_widget.dart';
+import 'package:task/widgets/product_image_widget.dart';
 import '../controllers/product_controller.dart';
 import '../services/api_service.dart';
 import '../services/dio_client.dart';

@@ -31,7 +31,10 @@ class LoginView extends StatelessWidget {
                           'Error', 'Sign-in failed. Please try again.');
                     }
                   },
-                  child: const Text('Sign in with Google'),
+                  child: const Text(
+                    'Sign in with Google',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             ),

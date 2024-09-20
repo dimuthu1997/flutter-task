@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task/Widgets/carousel_image_widget.dart';
+import 'package:task/widgets/carousel_image_widget.dart';
 import '../models/product_model.dart';
 
 class ProductDetailView extends StatelessWidget {
