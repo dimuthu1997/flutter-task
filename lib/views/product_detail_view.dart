@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task/utils/constants/assets.dart';
+import 'package:task/Widgets/carousel_image_widget.dart';
 import '../models/product_model.dart';
 
 class ProductDetailView extends StatelessWidget {
@@ -14,20 +14,16 @@ class ProductDetailView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.network(
-              product.images?.first ?? '',
-              errorBuilder: (context, error, stackTrace) {
-                return Image.asset(AppAssets.noImage, width: 600, height: 600);
-              },
-            ),
+            const SizedBox(height: 20),
+            CarouselImageWidget(images: product.images ?? []),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Price: \$${product.price}',
+                  Text('Price: \$${product.price?.toStringAsFixed(2) ?? 'N/A'}',
                       style: const TextStyle(fontSize: 20)),
-                  Text('Rating: ${product.rating}',
+                  Text('Rating: ${product.rating ?? 'N/A'}',
                       style: const TextStyle(fontSize: 18)),
                   const SizedBox(height: 10),
                   Text(product.description ?? 'No description available'),

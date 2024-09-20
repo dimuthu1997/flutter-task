@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task/utils/constants/assets.dart';
+import 'package:task/Widgets/product_image_widget.dart';
 import '../controllers/product_controller.dart';
 import '../services/api_service.dart';
 import '../services/dio_client.dart';
@@ -35,22 +35,12 @@ class HomeView extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 child: ListTile(
-                  leading: Image.network(
-                    product.thumbnail ?? '',
-                    width: 50,
-                    height: 50,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Image.asset(
-                        AppAssets.noImage,
-                        width: 50,
-                        height: 50,
-                      );
-                    },
-                  ),
+                  leading: ProductImageWidget(imageUrl: product.thumbnail),
                   title: Text(product.title ?? 'No title available'),
                   subtitle: Text(
-                      'Price: \$${product.price?.toStringAsFixed(2) ?? 'N/A'}, '
-                      'Brand: ${product.brand ?? 'Unknown'}'),
+                    'Price: \$${product.price?.toStringAsFixed(2) ?? 'N/A'}, '
+                    'Brand: ${product.brand ?? 'Unknown'}',
+                  ),
                   onTap: () =>
                       Get.to(() => ProductDetailView(product: product)),
                 ),
