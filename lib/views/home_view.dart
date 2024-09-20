@@ -17,7 +17,10 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Products')),
+      appBar: AppBar(
+        title: const Text('Products'),
+        automaticallyImplyLeading: false,
+      ),
       body: Obx(() {
         if (productController.isLoading.value) {
           return const Center(child: CircularProgressIndicator());

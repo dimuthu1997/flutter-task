@@ -34,6 +34,14 @@ class ThemeController extends GetxController {
       appBarTheme: AppBarTheme(
         backgroundColor: _primaryColor,
       ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+        ),
+      ),
     );
   }
 }

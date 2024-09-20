@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task/controllers/product_controller.dart';
+import 'package:task/controllers/signin_controller.dart';
 import 'package:task/controllers/theme_controller.dart';
 import 'package:task/services/api_service.dart';
 import 'package:task/services/dio_client.dart';
-import 'package:task/views/home_view.dart';
+import 'package:task/views/login_view.dart';
 
 class ProductsApp extends StatefulWidget {
   const ProductsApp({super.key});
@@ -21,6 +22,7 @@ class _ProductsAppState extends State<ProductsApp> {
   }
 
   void _initServices() {
+    Get.put<SignInController>(SignInController(), permanent: true);
     Get.put<ThemeController>(ThemeController(), permanent: true);
     Get.put<ApiService>(ApiService(DioClient()), permanent: true);
     Get.put<ProductController>(
@@ -37,7 +39,7 @@ class _ProductsAppState extends State<ProductsApp> {
       title: 'Products',
       themeMode: ThemeMode.light,
       theme: themeController.theme,
-      home: HomeView(),
+      home: LoginView(),
     );
   }
 }
